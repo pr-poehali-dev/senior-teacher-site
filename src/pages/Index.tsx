@@ -209,28 +209,100 @@ const Index = () => {
       </section>
 
       <section className="container mx-auto px-4 py-16">
-        <Card className="bg-gradient-to-br from-primary via-secondary to-accent text-white border-0">
-          <CardHeader className="text-center space-y-4 py-12">
-            <CardTitle className="font-display font-bold text-4xl">Свяжитесь с нами 📞</CardTitle>
-            <CardDescription className="text-white/90 text-lg max-w-2xl mx-auto">
-              Мы всегда рады ответить на ваши вопросы и помочь с выбором образовательной программы для вашего ребёнка
-            </CardDescription>
-            <div className="flex flex-col md:flex-row gap-6 justify-center items-center pt-6">
-              <div className="flex items-center gap-3">
-                <Icon name="Phone" size={24} />
-                <span className="text-lg">+7 (123) 456-78-90</span>
+        <div className="grid md:grid-cols-2 gap-12">
+          <Card className="bg-gradient-to-br from-primary via-secondary to-accent text-white border-0">
+            <CardHeader className="space-y-4 py-8">
+              <CardTitle className="font-display font-bold text-3xl">Свяжитесь с нами 📞</CardTitle>
+              <CardDescription className="text-white/90 text-base">
+                Мы всегда рады ответить на ваши вопросы и помочь с выбором образовательной программы
+              </CardDescription>
+              <div className="flex flex-col gap-4 pt-4">
+                <div className="flex items-center gap-3">
+                  <Icon name="Phone" size={20} />
+                  <span>+7 (123) 456-78-90</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Icon name="Mail" size={20} />
+                  <span>info@detskysad1.ru</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Icon name="MapPin" size={20} />
+                  <span>г. Москва, ул. Детская, д. 1</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Icon name="Clock" size={20} />
+                  <span>Пн-Пт: 7:00 - 19:00</span>
+                </div>
               </div>
-              <div className="flex items-center gap-3">
-                <Icon name="Mail" size={24} />
-                <span className="text-lg">info@detskysad1.ru</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Icon name="MapPin" size={24} />
-                <span className="text-lg">г. Москва, ул. Детская, д. 1</span>
-              </div>
-            </div>
-          </CardHeader>
-        </Card>
+            </CardHeader>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="font-display text-2xl">Форма обратной связи</CardTitle>
+              <CardDescription>Заполните форму, и мы свяжемся с вами в ближайшее время</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <form className="space-y-4" onSubmit={(e) => {
+                e.preventDefault();
+                alert('Спасибо за обращение! Мы свяжемся с вами в ближайшее время.');
+              }}>
+                <div className="space-y-2">
+                  <label htmlFor="name" className="text-sm font-medium">
+                    Ваше имя
+                  </label>
+                  <input
+                    id="name"
+                    type="text"
+                    required
+                    className="w-full px-4 py-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                    placeholder="Иван Иванов"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="email" className="text-sm font-medium">
+                    Email
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    required
+                    className="w-full px-4 py-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                    placeholder="ivanov@example.com"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="phone" className="text-sm font-medium">
+                    Телефон
+                  </label>
+                  <input
+                    id="phone"
+                    type="tel"
+                    required
+                    className="w-full px-4 py-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                    placeholder="+7 (___) ___-__-__"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="message" className="text-sm font-medium">
+                    Сообщение
+                  </label>
+                  <textarea
+                    id="message"
+                    required
+                    rows={4}
+                    className="w-full px-4 py-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+                    placeholder="Расскажите, чем мы можем вам помочь..."
+                  />
+                </div>
+                <Button type="submit" size="lg" className="w-full rounded-full">
+                  Отправить сообщение
+                  <Icon name="Send" className="ml-2" size={18} />
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
+        </div>
       </section>
 
       <footer className="bg-white/50 backdrop-blur-sm py-8 mt-16">

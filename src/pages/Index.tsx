@@ -59,6 +59,53 @@ const Index = () => {
     { name: 'Методические рекомендации', type: 'PDF', size: '1.8 МБ' }
   ];
 
+  const parentsAdvice = [
+    {
+      icon: '🎯',
+      title: 'Адаптация к детскому саду',
+      tips: [
+        'Приучайте ребёнка к режиму дня заранее',
+        'Расскажите о детском саде как о интересном месте',
+        'Постепенно увеличивайте время пребывания',
+        'Поддерживайте позитивный настрой'
+      ],
+      color: 'from-pink-100 to-pink-50'
+    },
+    {
+      icon: '🍎',
+      title: 'Здоровое питание',
+      tips: [
+        'Разнообразное меню с овощами и фруктами',
+        'Регулярный режим приёма пищи',
+        'Привлекайте ребёнка к выбору продуктов',
+        'Собственный пример здорового питания'
+      ],
+      color: 'from-yellow-100 to-yellow-50'
+    },
+    {
+      icon: '📖',
+      title: 'Развитие речи',
+      tips: [
+        'Читайте вместе каждый день',
+        'Обсуждайте прочитанное и увиденное',
+        'Играйте в словесные игры',
+        'Поощряйте рассказы о событиях дня'
+      ],
+      color: 'from-green-100 to-green-50'
+    },
+    {
+      icon: '🤝',
+      title: 'Социальные навыки',
+      tips: [
+        'Организуйте встречи с другими детьми',
+        'Учите делиться и договариваться',
+        'Обсуждайте чувства и эмоции',
+        'Показывайте пример вежливого общения'
+      ],
+      color: 'from-blue-100 to-blue-50'
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 via-yellow-50 to-green-50">
       <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
@@ -138,6 +185,41 @@ const Index = () => {
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-base">{method.description}</CardDescription>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <section className="container mx-auto px-4 py-16 bg-white/40 rounded-3xl my-8">
+        <div className="text-center mb-12">
+          <h3 className="font-display font-bold text-4xl mb-4">Советы родителям 👨‍👩‍👧</h3>
+          <p className="text-lg text-muted-foreground">
+            Полезные рекомендации для гармоничного развития ребёнка
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 gap-6">
+          {parentsAdvice.map((advice, index) => (
+            <Card
+              key={index}
+              className="overflow-hidden hover-scale cursor-pointer"
+            >
+              <div className={`h-2 bg-gradient-to-r ${advice.color}`} />
+              <CardHeader>
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="text-4xl">{advice.icon}</div>
+                  <CardTitle className="font-display text-2xl">{advice.title}</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3">
+                  {advice.tips.map((tip, tipIndex) => (
+                    <li key={tipIndex} className="flex items-start gap-2">
+                      <Icon name="CheckCircle2" className="text-accent mt-0.5 flex-shrink-0" size={20} />
+                      <span className="text-muted-foreground">{tip}</span>
+                    </li>
+                  ))}
+                </ul>
               </CardContent>
             </Card>
           ))}
